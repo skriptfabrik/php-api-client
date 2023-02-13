@@ -1,6 +1,6 @@
 <?php
 /**
- * ClockifyHookUpdateRequestRelationships
+ * AccessTokenCreateErrorResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Skriptfabrik\ApiClient\ObjectSerializer;
 
 /**
- * ClockifyHookUpdateRequestRelationships Class Doc Comment
+ * AccessTokenCreateErrorResponse Class Doc Comment
  *
  * @category Class
  * @package  Skriptfabrik\ApiClient
@@ -41,7 +41,7 @@ use \Skriptfabrik\ApiClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccessTokenCreateErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClockifyHookUpdateRequestRelationships';
+    protected static $openAPIModelName = 'AccessTokenCreateErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization' => '\Skriptfabrik\ApiClient\Model\OrganizationRelationship',
-        'user' => '\Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser'
+        'type' => 'string',
+        'title' => 'string',
+        'status' => 'float',
+        'detail' => 'string'
     ];
 
     /**
@@ -70,8 +72,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization' => null,
-        'user' => null
+        'type' => null,
+        'title' => null,
+        'status' => null,
+        'detail' => null
     ];
 
     /**
@@ -80,8 +84,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization' => false,
-		'user' => false
+        'type' => false,
+		'title' => false,
+		'status' => false,
+		'detail' => false
     ];
 
     /**
@@ -170,8 +176,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization' => 'organization',
-        'user' => 'user'
+        'type' => 'type',
+        'title' => 'title',
+        'status' => 'status',
+        'detail' => 'detail'
     ];
 
     /**
@@ -180,8 +188,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'organization' => 'setOrganization',
-        'user' => 'setUser'
+        'type' => 'setType',
+        'title' => 'setTitle',
+        'status' => 'setStatus',
+        'detail' => 'setDetail'
     ];
 
     /**
@@ -190,8 +200,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'organization' => 'getOrganization',
-        'user' => 'getUser'
+        'type' => 'getType',
+        'title' => 'getTitle',
+        'status' => 'getStatus',
+        'detail' => 'getDetail'
     ];
 
     /**
@@ -235,6 +247,19 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
+    public const STATUS_400 = 400;
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_400,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -251,8 +276,10 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('organization', $data ?? [], null);
-        $this->setIfExists('user', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
     }
 
     /**
@@ -282,8 +309,26 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['organization'] === null) {
-            $invalidProperties[] = "'organization' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'status', must be one of '%s'",
+                $this->container['status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['detail'] === null) {
+            $invalidProperties[] = "'detail' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,55 +346,119 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets organization
+     * Gets type
      *
-     * @return \Skriptfabrik\ApiClient\Model\OrganizationRelationship
+     * @return string
      */
-    public function getOrganization()
+    public function getType()
     {
-        return $this->container['organization'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets organization
+     * Sets type
      *
-     * @param \Skriptfabrik\ApiClient\Model\OrganizationRelationship $organization organization
+     * @param string $type type
      *
      * @return self
      */
-    public function setOrganization($organization)
+    public function setType($type)
     {
-        if (is_null($organization)) {
-            throw new \InvalidArgumentException('non-nullable organization cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['organization'] = $organization;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets user
+     * Gets title
      *
-     * @return \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null
+     * @return string
      */
-    public function getUser()
+    public function getTitle()
     {
-        return $this->container['user'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets user
+     * Sets title
      *
-     * @param \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null $user user
+     * @param string $title title
      *
      * @return self
      */
-    public function setUser($user)
+    public function setTitle($title)
     {
-        if (is_null($user)) {
-            throw new \InvalidArgumentException('non-nullable user cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['user'] = $user;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return float
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param float $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'status', must be one of '%s'",
+                    $status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     *
+     * @return string
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param string $detail detail
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        if (is_null($detail)) {
+            throw new \InvalidArgumentException('non-nullable detail cannot be null');
+        }
+        $this->container['detail'] = $detail;
 
         return $this;
     }

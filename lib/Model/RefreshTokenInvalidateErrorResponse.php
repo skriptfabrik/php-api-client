@@ -1,6 +1,6 @@
 <?php
 /**
- * ClockifyHookUpdateRequestRelationships
+ * RefreshTokenInvalidateErrorResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Skriptfabrik\ApiClient\ObjectSerializer;
 
 /**
- * ClockifyHookUpdateRequestRelationships Class Doc Comment
+ * RefreshTokenInvalidateErrorResponse Class Doc Comment
  *
  * @category Class
  * @package  Skriptfabrik\ApiClient
@@ -41,7 +41,7 @@ use \Skriptfabrik\ApiClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
+class RefreshTokenInvalidateErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClockifyHookUpdateRequestRelationships';
+    protected static $openAPIModelName = 'RefreshTokenInvalidateErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization' => '\Skriptfabrik\ApiClient\Model\OrganizationRelationship',
-        'user' => '\Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser'
+        'code' => 'float',
+        'message' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization' => null,
-        'user' => null
+        'code' => null,
+        'message' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization' => false,
-		'user' => false
+        'code' => false,
+		'message' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization' => 'organization',
-        'user' => 'user'
+        'code' => 'code',
+        'message' => 'message'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'organization' => 'setOrganization',
-        'user' => 'setUser'
+        'code' => 'setCode',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'organization' => 'getOrganization',
-        'user' => 'getUser'
+        'code' => 'getCode',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -251,8 +251,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('organization', $data ?? [], null);
-        $this->setIfExists('user', $data ?? [], null);
+        $this->setIfExists('code', $data ?? [], null);
+        $this->setIfExists('message', $data ?? [], null);
     }
 
     /**
@@ -282,8 +282,11 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['organization'] === null) {
-            $invalidProperties[] = "'organization' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,55 +304,55 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets organization
+     * Gets code
      *
-     * @return \Skriptfabrik\ApiClient\Model\OrganizationRelationship
+     * @return float
      */
-    public function getOrganization()
+    public function getCode()
     {
-        return $this->container['organization'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets organization
+     * Sets code
      *
-     * @param \Skriptfabrik\ApiClient\Model\OrganizationRelationship $organization organization
+     * @param float $code code
      *
      * @return self
      */
-    public function setOrganization($organization)
+    public function setCode($code)
     {
-        if (is_null($organization)) {
-            throw new \InvalidArgumentException('non-nullable organization cannot be null');
+        if (is_null($code)) {
+            throw new \InvalidArgumentException('non-nullable code cannot be null');
         }
-        $this->container['organization'] = $organization;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets user
+     * Gets message
      *
-     * @return \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null
+     * @return string
      */
-    public function getUser()
+    public function getMessage()
     {
-        return $this->container['user'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets user
+     * Sets message
      *
-     * @param \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null $user user
+     * @param string $message message
      *
      * @return self
      */
-    public function setUser($user)
+    public function setMessage($message)
     {
-        if (is_null($user)) {
-            throw new \InvalidArgumentException('non-nullable user cannot be null');
+        if (is_null($message)) {
+            throw new \InvalidArgumentException('non-nullable message cannot be null');
         }
-        $this->container['user'] = $user;
+        $this->container['message'] = $message;
 
         return $this;
     }

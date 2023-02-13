@@ -1,6 +1,6 @@
 <?php
 /**
- * ClockifyHookUpdateRequestRelationships
+ * AccessTokenResponse
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Skriptfabrik\ApiClient\ObjectSerializer;
 
 /**
- * ClockifyHookUpdateRequestRelationships Class Doc Comment
+ * AccessTokenResponse Class Doc Comment
  *
  * @category Class
  * @package  Skriptfabrik\ApiClient
@@ -41,7 +41,7 @@ use \Skriptfabrik\ApiClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccessTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClockifyHookUpdateRequestRelationships';
+    protected static $openAPIModelName = 'AccessTokenResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization' => '\Skriptfabrik\ApiClient\Model\OrganizationRelationship',
-        'user' => '\Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser'
+        'token' => 'string'
     ];
 
     /**
@@ -70,8 +69,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization' => null,
-        'user' => null
+        'token' => null
     ];
 
     /**
@@ -80,8 +78,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization' => false,
-		'user' => false
+        'token' => false
     ];
 
     /**
@@ -170,8 +167,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization' => 'organization',
-        'user' => 'user'
+        'token' => 'token'
     ];
 
     /**
@@ -180,8 +176,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'organization' => 'setOrganization',
-        'user' => 'setUser'
+        'token' => 'setToken'
     ];
 
     /**
@@ -190,8 +185,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'organization' => 'getOrganization',
-        'user' => 'getUser'
+        'token' => 'getToken'
     ];
 
     /**
@@ -251,8 +245,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('organization', $data ?? [], null);
-        $this->setIfExists('user', $data ?? [], null);
+        $this->setIfExists('token', $data ?? [], null);
     }
 
     /**
@@ -282,8 +275,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['organization'] === null) {
-            $invalidProperties[] = "'organization' can't be null";
+        if ($this->container['token'] === null) {
+            $invalidProperties[] = "'token' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,55 +294,28 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets organization
+     * Gets token
      *
-     * @return \Skriptfabrik\ApiClient\Model\OrganizationRelationship
+     * @return string
      */
-    public function getOrganization()
+    public function getToken()
     {
-        return $this->container['organization'];
+        return $this->container['token'];
     }
 
     /**
-     * Sets organization
+     * Sets token
      *
-     * @param \Skriptfabrik\ApiClient\Model\OrganizationRelationship $organization organization
+     * @param string $token token
      *
      * @return self
      */
-    public function setOrganization($organization)
+    public function setToken($token)
     {
-        if (is_null($organization)) {
-            throw new \InvalidArgumentException('non-nullable organization cannot be null');
+        if (is_null($token)) {
+            throw new \InvalidArgumentException('non-nullable token cannot be null');
         }
-        $this->container['organization'] = $organization;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     *
-     * @return \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     *
-     * @param \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null $user user
-     *
-     * @return self
-     */
-    public function setUser($user)
-    {
-        if (is_null($user)) {
-            throw new \InvalidArgumentException('non-nullable user cannot be null');
-        }
-        $this->container['user'] = $user;
+        $this->container['token'] = $token;
 
         return $this;
     }

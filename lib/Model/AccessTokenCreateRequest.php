@@ -1,6 +1,6 @@
 <?php
 /**
- * ClockifyHookUpdateRequestRelationships
+ * AccessTokenCreateRequest
  *
  * PHP version 7.4
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Skriptfabrik\ApiClient\ObjectSerializer;
 
 /**
- * ClockifyHookUpdateRequestRelationships Class Doc Comment
+ * AccessTokenCreateRequest Class Doc Comment
  *
  * @category Class
  * @package  Skriptfabrik\ApiClient
@@ -41,7 +41,7 @@ use \Skriptfabrik\ApiClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAccess, \JsonSerializable
+class AccessTokenCreateRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ClockifyHookUpdateRequestRelationships';
+    protected static $openAPIModelName = 'AccessTokenCreateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'organization' => '\Skriptfabrik\ApiClient\Model\OrganizationRelationship',
-        'user' => '\Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser'
+        'email' => 'string',
+        'password' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'organization' => null,
-        'user' => null
+        'email' => 'email',
+        'password' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'organization' => false,
-		'user' => false
+        'email' => false,
+		'password' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'organization' => 'organization',
-        'user' => 'user'
+        'email' => 'email',
+        'password' => 'password'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'organization' => 'setOrganization',
-        'user' => 'setUser'
+        'email' => 'setEmail',
+        'password' => 'setPassword'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'organization' => 'getOrganization',
-        'user' => 'getUser'
+        'email' => 'getEmail',
+        'password' => 'getPassword'
     ];
 
     /**
@@ -251,8 +251,8 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('organization', $data ?? [], null);
-        $this->setIfExists('user', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('password', $data ?? [], null);
     }
 
     /**
@@ -282,8 +282,11 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['organization'] === null) {
-            $invalidProperties[] = "'organization' can't be null";
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['password'] === null) {
+            $invalidProperties[] = "'password' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,55 +304,55 @@ class ClockifyHookUpdateRequestRelationships implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets organization
+     * Gets email
      *
-     * @return \Skriptfabrik\ApiClient\Model\OrganizationRelationship
+     * @return string
      */
-    public function getOrganization()
+    public function getEmail()
     {
-        return $this->container['organization'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets organization
+     * Sets email
      *
-     * @param \Skriptfabrik\ApiClient\Model\OrganizationRelationship $organization organization
+     * @param string $email email
      *
      * @return self
      */
-    public function setOrganization($organization)
+    public function setEmail($email)
     {
-        if (is_null($organization)) {
-            throw new \InvalidArgumentException('non-nullable organization cannot be null');
+        if (is_null($email)) {
+            throw new \InvalidArgumentException('non-nullable email cannot be null');
         }
-        $this->container['organization'] = $organization;
+        $this->container['email'] = $email;
 
         return $this;
     }
 
     /**
-     * Gets user
+     * Gets password
      *
-     * @return \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null
+     * @return string
      */
-    public function getUser()
+    public function getPassword()
     {
-        return $this->container['user'];
+        return $this->container['password'];
     }
 
     /**
-     * Sets user
+     * Sets password
      *
-     * @param \Skriptfabrik\ApiClient\Model\ClockifyHookCreateRequestRelationshipsUser|null $user user
+     * @param string $password password
      *
      * @return self
      */
-    public function setUser($user)
+    public function setPassword($password)
     {
-        if (is_null($user)) {
-            throw new \InvalidArgumentException('non-nullable user cannot be null');
+        if (is_null($password)) {
+            throw new \InvalidArgumentException('non-nullable password cannot be null');
         }
-        $this->container['user'] = $user;
+        $this->container['password'] = $password;
 
         return $this;
     }
