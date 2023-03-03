@@ -1,0 +1,11 @@
+version: 2
+
+updates:
+  - package-ecosystem: 'composer'
+    directory: '/'
+    reviewers:
+      - 'skriptfabrik/api-client-maintainers'
+    schedule:
+      interval: 'weekly'
+      time: '08:00'
+      timezone: 'Europe/Berlin'
